@@ -46,7 +46,7 @@ import org.apache.beam.sdk.transforms.windowing.Window;
  * outputs the raw data into windowed files at the specified output
  * directory.
  */
-public class PubsubToText {
+public class PubsubToTextJavaScriptUDF {
 
   /**
    * Options supported by the pipeline.
