@@ -54,7 +54,7 @@ public class PubsubToTextJavaScriptUDF {
    * <p>Inherits standard configuration options.</p>
    */
   public interface Options extends PipelineOptions, StreamingOptions, JavascriptTextTransformerOptions {
-    // custom code by tHappy
+    // custom code
     // import statements added
     @Description("GCS path to javascript fn for transforming output")
     ValueProvider<String> getJavascriptTextTransformGcsPath();
@@ -149,7 +149,7 @@ public class PubsubToTextJavaScriptUDF {
         .apply(
             options.getWindowDuration() + " Window",
             Window.into(FixedWindows.of(DurationUtils.parseDuration(options.getWindowDuration()))))
-        // begin custom code by tHappy 
+        // begin custom code
         .apply(
             TransformTextViaJavascript.newBuilder()
                 .setFileSystemPath(options.getJavascriptTextTransformGcsPath())
